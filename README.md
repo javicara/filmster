@@ -21,7 +21,7 @@ Aplicación utilizada en la cursada 2019 de Ingenieria de Software. UTN-FRLP
 
 ##GRUPO N 2
 **Intregrantes**
-Caraballo, Javier  
-Celerier, Valeria
-Rodriguez, Florencia
-Gismondi, Juan Manuel
+*Caraballo, Javier  
+*Celerier, Valeria
+*Rodriguez, Florencia
+*Gismondi, Juan Manuel
