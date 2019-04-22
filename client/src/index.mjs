@@ -6,6 +6,7 @@ const table = Table('#movies', {
         { label: 'Título', field: 'title' },
         { label: 'Descripción', field: 'description' },
         { label: 'Año', field: 'year' },
+        { label: 'Genero', field: 'genres' },
         { label: 'Pais', field: 'country' },
         {
             label: 'Guionistas',
