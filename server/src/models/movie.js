@@ -41,6 +41,7 @@ const Movie = db.define('Movie', {
 })
 
 const getAll = () => Movie.findAll().then(movies => movies)
+const getSel = () => Movie.findAll().get.getSel()
 
 const create = (data) =>
 	Movie.sync().then(() =>
