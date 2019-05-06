@@ -41,7 +41,7 @@ const $refs = {
     saveMovieBtn: document.querySelector('#saveMovieBtn'),
     addMovieBtn: document.querySelector('#addMovieBtn'),
     closeModalBtn: document.querySelector('#closeModalBtn'),
-
+    
     modal: document.querySelector('#modal'),
 
     movieName: document.querySelector('#movieName'),
@@ -93,8 +93,10 @@ function saveMovie() {
     console.log(movie)
 }
 
+
 // Levantamos los listeners de la app
 $refs.addMovieBtn.addEventListener('click', openModal)
 $refs.cancelModalBtn.addEventListener('click', closeModal)
 $refs.closeModalBtn.addEventListener('click', closeModal)
 $refs.saveMovieBtn.addEventListener('click', saveMovie)
+

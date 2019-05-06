@@ -13,6 +13,8 @@ fetch('/api/v1/movies', {
     })
 }
 
+
+
 export default {
     getAll,
     create
