@@ -25,5 +25,5 @@ Aplicación utilizada en la cursada 2019 de Ingenieria de Software. UTN-FRLP
 
 * Caraballo, Javier  
 * CELERIER, Ana Valeria
-* Gismondi, Juan Manuel
+* GISMONDI, Juan Manuel
 * Rodriguez, Florencia
