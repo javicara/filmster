@@ -18,10 +18,15 @@ window.table = Table('#movies', {
     data: [],
     // Esta funcion se ejecuta cuando seleccionamos una pelicula
     onSelectedRow: function (row) {
+         var btn = document.getElementById('addMovieBtn')
+        btn.disabled = true
         console.log(table.getSelectedRows())
     },
     // Esta funcion se ejecuta cuando deseleccionamos una pelicula
     onDeselectedRow: function () {
+        var btn = document.getElementById('addMovieBtn')
+        if (table.getSelectedRows()==0)
+        btn.disabled = false 
         console.log(table.getSelectedRows())
     }
 })
