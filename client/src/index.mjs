@@ -40,6 +40,7 @@ const $refs = {
     cancelModalBtn: document.querySelector('#cancelModalBtn'),
     saveMovieBtn: document.querySelector('#saveMovieBtn'),
     addMovieBtn: document.querySelector('#addMovieBtn'),
+    deleteMoviebtn: document.querySelector('#deleteMoviebtn'),
     closeModalBtn: document.querySelector('#closeModalBtn'),
     
     modal: document.querySelector('#modal'),
@@ -93,10 +94,24 @@ function saveMovie() {
     console.log(movie)
 }
 
+function deleteMovie() {
+    const moviesToBeDeleted = table.getSelectedRows()
+    console.log("hola")
+
+
+    if(moviesToBeDeleted.length == 0){
+         alert('No ha seleccionado ninguna pelicula')
+    } else {
+            for (let i = 0; i < moviesToBeDeleted.length; i++) {
+                  movieService.deleteMovie(moviesToBeDeleted[i].id);
+            }
+    }
+}
 
 // Levantamos los listeners de la app
 $refs.addMovieBtn.addEventListener('click', openModal)
 $refs.cancelModalBtn.addEventListener('click', closeModal)
 $refs.closeModalBtn.addEventListener('click', closeModal)
 $refs.saveMovieBtn.addEventListener('click', saveMovie)
+$refs.deleteMoviebtn.addEventListener('click',deleteMovie)
 

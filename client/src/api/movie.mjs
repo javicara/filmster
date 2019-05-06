@@ -12,10 +12,25 @@ fetch('/api/v1/movies', {
         			'Content-Type': 'application/json' },
     })
 }
+ 
+function deleteMovie(id) {
+    return fetch('/api/v1/movies/' + id, { method: 'DELETE' })
+        .then(function(response) {
+            return response;
+        })
+        .then(function(myRes) {
+            alert('La película ' + id + ' fue borrada exitosamente');
+            location.reload();
+        })
+        .catch(function(error) {
+            alert('La película ' + id + ' no fue encontrada');
+        });
+}
 
 
 
 export default {
     getAll,
-    create
+    create,
+    deleteMovie
 }
