@@ -18,18 +18,30 @@ window.table = Table('#movies', {
     data: [],
     // Esta funcion se ejecuta cuando seleccionamos una pelicula
     onSelectedRow: function (row) {
-         var btn = document.getElementById('addMovieBtn')
-        btn.disabled = true
+        var btnAgregar = document.getElementById('addMovieBtn')
+        var btnElimar= document.getElementById('deleteMoviebtn')
+        console.log(table.getSelectedRows().length)
+            if (table.getSelectedRows().length > 0){
+                btnElimar.disabled=false   
+                btnAgregar.disabled=true 
+             }
         console.log(table.getSelectedRows())
     },
     // Esta funcion se ejecuta cuando deseleccionamos una pelicula
     onDeselectedRow: function () {
-        var btn = document.getElementById('addMovieBtn')
-        if (table.getSelectedRows()==0)
-        btn.disabled = false 
+       var btnElimar= document.getElementById('deleteMoviebtn')
+       // btnElimar.disabled=true
+        var btnAgregar = document.getElementById('addMovieBtn')
+        
+        
+            if (table.getSelectedRows().length==0){
+                btnElimar.disabled=true  // deshabilitado
+                btnAgregar.disabled=false // habilitado
+            }
         console.log(table.getSelectedRows())
     }
 })
+//Hagan otro HOTFIX de la versión 1.2.0 haciendo que se deshabilite el botón "Eliminar" cuando no hay películas seleccionadas
 
 // Obtenemos todas las peliculas
 movieService.getAll().then(table.update)
@@ -40,7 +52,6 @@ const $refs = {
     cancelModalBtn: document.querySelector('#cancelModalBtn'),
     saveMovieBtn: document.querySelector('#saveMovieBtn'),
     addMovieBtn: document.querySelector('#addMovieBtn'),
-    deleteMoviebtn: document.querySelector('#deleteMoviebtn'),
     closeModalBtn: document.querySelector('#closeModalBtn'),
 
     modal: document.querySelector('#modal'),
@@ -89,23 +100,8 @@ function saveMovie() {
         writers: parseCSV($refs.movieWriters.value),
         directors: parseCSV($refs.movieDirectors.value)
     }
-    movieService.create(movie)
-    location.reload() 
+
     console.log(movie)
-}
-
-function deleteMovie() {
-    const moviesToBeDeleted = table.getSelectedRows()
-    console.log("hola")
-
-
-    if(moviesToBeDeleted.length == 0){
-         alert('No ha seleccionado ninguna pelicula')
-    } else {
-            for (let i = 0; i < moviesToBeDeleted.length; i++) {
-                  movieService.deleteMovie(moviesToBeDeleted[i].id);
-            }
-    }
 }
 
 // Levantamos los listeners de la app
@@ -113,4 +109,3 @@ $refs.addMovieBtn.addEventListener('click', openModal)
 $refs.cancelModalBtn.addEventListener('click', closeModal)
 $refs.closeModalBtn.addEventListener('click', closeModal)
 $refs.saveMovieBtn.addEventListener('click', saveMovie)
-$refs.deleteMoviebtn.addEventListener('click',deleteMovie)
