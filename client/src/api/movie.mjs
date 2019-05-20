@@ -27,6 +27,8 @@ function deleteMovie(id) {
         });
 }
 
+
+
 export default {
     getAll,
     create,
