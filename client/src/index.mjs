@@ -56,7 +56,7 @@ const $refs = {
     deleteMoviebtn: document.querySelector('#deleteMoviebtn'),
 
     closeModalBtn: document.querySelector('#closeModalBtn'),
-
+    
     modal: document.querySelector('#modal'),
 
     movieName: document.querySelector('#movieName'),
